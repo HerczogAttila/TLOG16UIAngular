@@ -13,8 +13,8 @@ export class SimpleDayComponent {
 
   makeWorkday() {
     this.day.type = "work";
-    this.day.extraMinutes = Math.floor(Math.random() * 200 - 100);
+    this.day.requiredWorkMinutes = 40;
+    this.day.minutes = Math.floor(Math.random() * 80);
+    this.day.extraMinutes = this.day.minutes - this.day.requiredWorkMinutes;
   }
-
-
 }

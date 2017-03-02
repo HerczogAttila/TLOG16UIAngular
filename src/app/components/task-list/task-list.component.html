@@ -1,7 +1,14 @@
 <h2>Task list</h2>
 <div>
-  <label>Task id: <input #taskId /></label>
-  <button (click)="add(taskId.value); taskId.value=''">Add</button>
+  <div>
+    <label>Required working minutes: <input value="{{day.requiredWorkMinutes}}" #reqMin /></label><br>
+    <label>Minutes: <input value="{{day.minutes}}" #minutes /></label><br>
+    <button (click)="modifyDay(reqMin.value, minutes.value)">Modify</button>
+  </div><br>
+  <div>
+    <label>Task id: <input #taskId /></label>
+    <button (click)="add(taskId.value); taskId.value=''">Add</button>
+  </div>
 </div>
 <div *ngFor="let t of day.tasks" (click)="onSelect(t)">
   {{t.id}}, {{t.comment}}, {{t.startHour}}:{{t.startMinute}}-{{t.endHour}}:{{t.endMinute}} <button (click)="deleteTask(t)">x</button>
@@ -14,5 +21,5 @@
   <label>Start minute: <input value="{{selectedTask.startMinute}}" #startMinute /></label><br>
   <label>End hour: <input value="{{selectedTask.endHour}}" #endHour /></label><br>
   <label>End minute: <input value="{{selectedTask.endMinute}}" #endMinute /></label><br>
-  <button (click)="modify(id.value, comment.value, startHour.value, startMinute.value, endHour.value, endMinute.value)">Modify</button>
+  <button (click)="modifyTask(id.value, comment.value, startHour.value, startMinute.value, endHour.value, endMinute.value)">Modify</button>
 </div>

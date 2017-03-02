@@ -11,6 +11,7 @@ import {SimpleDayComponent} from "./components/simple-day/simple-day.component";
 import {WorkdayComponent} from "./components/workday/workday.component";
 import {WeekComponent} from "./components/week/week.component";
 import {MonthlyStatisticComponent} from "./components/monthly-statistic/monthly-statistic.component";
+import {WeekService} from "./services/week.service";
 
 @NgModule({
   imports: [
@@ -26,6 +27,9 @@ import {MonthlyStatisticComponent} from "./components/monthly-statistic/monthly-
     WorkdayComponent,
     WeekComponent,
     MonthlyStatisticComponent,
+  ],
+  providers: [
+    WeekService
   ],
   bootstrap: [AppComponent]
 })

@@ -19,6 +19,6 @@ export class WorkdayComponent {
     private router: Router) { }
 
   gotoTaskList() {
-    this.router.navigate(['/task-list', this.day.getDate()]);
+    this.router.navigate(['/task-list', this.day.day]);
   }
 }

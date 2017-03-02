@@ -3,6 +3,7 @@ import { OnInit } from '@angular/core';
 import {Week} from "../../classes/week";
 import {Day} from "../../classes/day";
 import {AppComponent} from "../../app.component";
+import {WeekService} from "../../services/week.service";
 
 @Component({
   moduleId: module.id,
@@ -13,6 +14,8 @@ import {AppComponent} from "../../app.component";
 
 export class CalendarComponent implements OnInit {
   app = AppComponent;
+
+  constructor(private weekService: WeekService) { }
 
   date: any = new Date();
   year: number = this.date.getFullYear();
@@ -25,12 +28,13 @@ export class CalendarComponent implements OnInit {
 
   weeks: Week[];
 
-  reqWorkMinutes: number = 500;
-  minutes: number = 485;
-  extraMinutes: number = -15;
+  reqWorkMinutes: number;
+  minutes: number;
+  extraMinutes: number;
 
   newMonth() {
     this.actualMonth = this.monthsOfYear[this.month];
+
 
     this.reqWorkMinutes = Math.floor(Math.random() * 1000 + 100);
     this.minutes = Math.floor(Math.random() * 900 + 50);
@@ -70,6 +74,8 @@ export class CalendarComponent implements OnInit {
       w.days = days;
       this.weeks.push(w);
     }
+
+    this.weekService.weeks = this.weeks;
   }
 
   prevMonth() {
@@ -95,6 +101,11 @@ export class CalendarComponent implements OnInit {
   }
 
   ngOnInit() : void {
-    this.newMonth();
+    if(this.weekService.weeks.length == 0)
+      this.newMonth();
+    else {
+      this.weeks = this.weekService.weeks;
+      this.actualMonth = this.monthsOfYear[this.month];
+    }
   }
 }

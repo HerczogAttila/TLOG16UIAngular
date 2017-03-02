@@ -1,9 +1,9 @@
 import 'rxjs/add/operator/switchMap';
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
-//import { Location } from '@angular/common';
 import {Day} from "../../classes/day";
 import {Task} from "../../classes/task";
+import {WeekService} from "../../services/week.service";
 
 @Component({
   moduleId: module.id,
@@ -13,25 +13,26 @@ import {Task} from "../../classes/task";
 })
 
 export class TaskListComponent implements OnInit {
-  day: Day = new Day();
+  day: Day;
   selectedTask: Task;
 
   constructor(
-    private route: ActivatedRoute,
-    //private location: Location
+      private route: ActivatedRoute,
+      private weekService: WeekService
   ) {}
 
   ngOnInit() {
-    let sub: string = "1-1-1";
-    this.route.params.subscribe(params => { sub = params['date'] });
-    let token = sub.split('-');
-    this.day.year = +token[0];
-    this.day.month = +token[1];
-    this.day.day = +token[2];
-
-    for(let i = 0; i < 10; i++) {
-      this.day.tasks.push(new Task());
+    let sub: number = 1;
+    this.route.params.subscribe(params => { sub = +params['day'] });
+    for(let w of this.weekService.weeks) {
+      for (let d of w.days) {
+        if(d.day == sub) this.day = d;
+      }
     }
+
+    /*for(let i = 0; i < 10; i++) {
+      this.day.tasks.push(new Task());
+    }*/
   }
 
   add(id: string) {
@@ -47,7 +48,13 @@ export class TaskListComponent implements OnInit {
     if(this.selectedTask === task) this.selectedTask = null;
   }
 
-  modify(id: string, comment: string, startHour: string, startMinute: string, endHour: string, endMinute: string) {
+  modifyDay(reqMin: number, minutes: number) {
+    this.day.requiredWorkMinutes = +reqMin;
+    this.day.minutes = +minutes;
+    this.day.extraMinutes = this.day.minutes - this.day.requiredWorkMinutes;
+  }
+
+  modifyTask(id: string, comment: string, startHour: string, startMinute: string, endHour: string, endMinute: string) {
     this.selectedTask.id = id;
     this.selectedTask.comment = comment;
     this.selectedTask.startHour = +startHour;

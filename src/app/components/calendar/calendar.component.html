@@ -13,6 +13,6 @@
       <ul class="day_header col-xs-1" *ngFor="let d of daysOfWeek">{{d}}</ul>
     </div>
     <div class="col-md-12" *ngFor="let w of weeks"><week [week]="w"></week></div>
-    <monthly-statistic [reqWorkMinutes]="reqWorkMinutes" [minutes]="minutes" [extraMinutes]="extraMinutes"></monthly-statistic>
+    <monthly-statistic></monthly-statistic>
   </div>
 </div>
