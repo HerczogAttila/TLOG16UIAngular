@@ -1,11 +1,11 @@
 import {Component, Input} from "@angular/core";
-import {Day} from "./day";
+import {Day} from "../classes/day";
 
 @Component({
   moduleId: module.id,
   selector: 'simple-day',
-  templateUrl: './simple-day.component.html',
-  styleUrls: ['../styles.css']
+  templateUrl: 'simple-day.component.html',
+  styleUrls: ['../../styles.css']
 })
 
 export class SimpleDayComponent {

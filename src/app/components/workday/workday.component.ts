@@ -1,13 +1,13 @@
 import {Component, Input} from "@angular/core";
-import {Day} from "./day";
+import {Day} from "../classes/day";
 import {Router} from "@angular/router";
-import {AppComponent} from "./app.component";
+import {AppComponent} from "../app.component";
 
 @Component({
   moduleId: module.id,
   selector: 'workday',
-  templateUrl: './workday.component.html',
-  styleUrls: ['../styles.css']
+  templateUrl: 'workday.component.html',
+  styleUrls: ['../../styles.css']
 })
 
 export class WorkdayComponent {

@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
-import {Week} from "./week";
-import {Day} from "./day";
-import {AppComponent} from "./app.component";
+import {Week} from "../classes/week";
+import {Day} from "../classes/day";
+import {AppComponent} from "../app.component";
 
 @Component({
   moduleId: module.id,
   selector: 'calendar',
   templateUrl: 'calendar.component.html',
-  styleUrls: ['../styles.css']
+  styleUrls: ['../../styles.css']
 })
 
 export class CalendarComponent implements OnInit {
