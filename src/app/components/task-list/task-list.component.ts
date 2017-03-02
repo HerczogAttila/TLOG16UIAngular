@@ -13,12 +13,12 @@ import {WeekService} from "../../services/week.service";
 })
 
 export class TaskListComponent implements OnInit {
-  day: Day;
+  day: Day = new Day();
   selectedTask: Task;
 
   constructor(
       private route: ActivatedRoute,
-      private weekService: WeekService
+      private weekService: WeekService,
   ) {}
 
   ngOnInit() {
@@ -48,8 +48,8 @@ export class TaskListComponent implements OnInit {
     if(this.selectedTask === task) this.selectedTask = null;
   }
 
-  modifyDay(reqMin: number, minutes: number) {
-    this.day.requiredWorkMinutes = +reqMin;
+  modifyDay(minutes: number) {
+    //this.day.requiredWorkMinutes = +reqMin;
     this.day.minutes = +minutes;
     this.day.extraMinutes = this.day.minutes - this.day.requiredWorkMinutes;
   }
