@@ -2,14 +2,14 @@ import 'rxjs/add/operator/switchMap';
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 //import { Location } from '@angular/common';
-import {Day} from "../classes/day";
-import {Task} from "../classes/task";
+import {Day} from "../../classes/day";
+import {Task} from "../../classes/task";
 
 @Component({
   moduleId: module.id,
   selector: 'task-list',
   templateUrl: 'task-list.component.html',
-  styleUrls: ['../../styles.css'],
+  styleUrls: ['../../../styles.css'],
 })
 
 export class TaskListComponent implements OnInit {

@@ -5,11 +5,11 @@ import { FormsModule }        from '@angular/forms';
 import { AppComponent }       from './app.component';
 
 import { AppRoutingModule }   from './app-routing.module';
-import { TaskListComponent }  from './task-list.component';
-import { CalendarComponent }  from './calendar.component';
-import {SimpleDayComponent} from "./simple-day.component";
-import {WorkdayComponent} from "./workday.component";
-import {WeekComponent} from "./week.component";
+import { TaskListComponent }  from './components/task-list/task-list.component';
+import { CalendarComponent }  from './components/calendar/calendar.component';
+import {SimpleDayComponent} from "./components/simple-day/simple-day.component";
+import {WorkdayComponent} from "./components/workday/workday.component";
+import {WeekComponent} from "./components/week/week.component";
 
 @NgModule({
   imports: [
