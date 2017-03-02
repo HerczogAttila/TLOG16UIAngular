@@ -14,6 +14,7 @@ import {MonthlyStatisticComponent} from "./components/monthly-statistic/monthly-
 import {WeekService} from "./services/week.service";
 import {DailyStatisticComponent} from "./components/daily-statistic/daily-statistic.component";
 import {PagerService} from "./services/pager.service";
+import {PagerComponent} from "./components/pager/pager.component";
 
 @NgModule({
   imports: [
@@ -30,6 +31,7 @@ import {PagerService} from "./services/pager.service";
     WeekComponent,
     MonthlyStatisticComponent,
     DailyStatisticComponent,
+    PagerComponent,
   ],
   providers: [
     WeekService,

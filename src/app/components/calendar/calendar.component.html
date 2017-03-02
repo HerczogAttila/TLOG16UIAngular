@@ -3,11 +3,7 @@
     <h2 class="title">Calendar</h2>
     <div class="month col-md-12">
       <ul class="title">{{pagerService.year}}</ul>
-      <ul class="title">
-        <button (click)="pagerService.prevMonth()">&#10094;</button>
-        {{pagerService.actualMonth}}
-        <button (click)="pagerService.nextMonth()">&#10095;</button>
-      </ul>
+      <pager></pager>
     </div>
     <div class="col-md-12">
       <ul class="day_header col-xs-1" *ngFor="let d of daysOfWeek">{{d}}</ul>
