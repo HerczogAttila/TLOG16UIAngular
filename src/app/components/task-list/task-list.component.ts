@@ -4,6 +4,7 @@ import {ActivatedRoute} from "@angular/router";
 import {Day} from "../../classes/day";
 import {Task} from "../../classes/task";
 import {WeekService} from "../../services/week.service";
+import {PagerService} from "../../services/pager.service";
 
 @Component({
   moduleId: module.id,
@@ -19,14 +20,18 @@ export class TaskListComponent implements OnInit {
   constructor(
       private route: ActivatedRoute,
       private weekService: WeekService,
-  ) {}
+      private pagerService: PagerService,
+  ) { }
 
   ngOnInit() {
     let sub: number = 1;
     this.route.params.subscribe(params => { sub = +params['day'] });
     for(let w of this.weekService.weeks) {
       for (let d of w.days) {
-        if(d.day == sub) this.day = d;
+        if(d.day == sub) {
+          this.day = d;
+          this.pagerService.day = this.day.day;
+        }
       }
     }
 

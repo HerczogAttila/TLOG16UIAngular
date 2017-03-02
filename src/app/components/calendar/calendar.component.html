@@ -2,17 +2,17 @@
   <div class="row">
     <h2 class="title">Calendar</h2>
     <div class="month col-md-12">
-      <ul class="title">{{year}}</ul>
+      <ul class="title">{{pagerService.year}}</ul>
       <ul class="title">
-        <button (click)="prevMonth()">&#10094;</button>
-        {{actualMonth}}
-        <button (click)="nextMonth()">&#10095;</button>
+        <button (click)="pagerService.prevMonth()">&#10094;</button>
+        {{pagerService.actualMonth}}
+        <button (click)="pagerService.nextMonth()">&#10095;</button>
       </ul>
     </div>
     <div class="col-md-12">
       <ul class="day_header col-xs-1" *ngFor="let d of daysOfWeek">{{d}}</ul>
     </div>
-    <div class="col-md-12" *ngFor="let w of weeks"><week [week]="w"></week></div>
+    <div class="col-md-12" *ngFor="let w of weekService.weeks"><week [week]="w"></week></div>
     <monthly-statistic></monthly-statistic>
   </div>
 </div>

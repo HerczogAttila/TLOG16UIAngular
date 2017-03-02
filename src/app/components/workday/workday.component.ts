@@ -15,8 +15,7 @@ export class WorkdayComponent {
 
   @Input() day: Day;
 
-  constructor(
-    private router: Router) { }
+  constructor(private router: Router) { }
 
   gotoTaskList() {
     this.router.navigate(['/task-list', this.day.day]);
