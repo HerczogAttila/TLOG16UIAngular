@@ -1,7 +1,7 @@
 <br><div class="container">
   <div class="row">
+    <h2 class="title">Calendar</h2>
     <div class="month col-md-12">
-      <ul><h2 class="title">Calendar</h2></ul>
       <ul class="title">{{year}}</ul>
       <ul class="title">
         <button (click)="prevMonth()">&#10094;</button>
@@ -10,13 +10,9 @@
       </ul>
     </div>
     <div class="col-md-12">
-      <ul class="day_header col-xs-1"  *ngFor="let d of daysOfWeek">{{d}}</ul>
+      <ul class="day_header col-xs-1" *ngFor="let d of daysOfWeek">{{d}}</ul>
     </div>
     <div class="col-md-12" *ngFor="let w of weeks"><week [week]="w"></week></div>
-    <div>
-      Required working minutes: <label [style.color]="app.getColor(reqWorkMinutes)">{{reqWorkMinutes}}</label><br>
-      Minutes: <label [style.color]="app.getColor(minutes)">{{minutes}}</label><br>
-      Extra minutes: <label [style.color]="app.getColor(extraMinutes)">{{extraMinutes}}</label><br>
-    </div>
+    <monthly-statistic [reqWorkMinutes]="reqWorkMinutes" [minutes]="minutes" [extraMinutes]="extraMinutes"></monthly-statistic>
   </div>
 </div>

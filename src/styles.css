@@ -142,3 +142,7 @@ ul { list-style-type: none; }
   font-size: 12px;
   color: #777;
 }
+
+.title {
+  text-align: center;
+}
