@@ -9,11 +9,12 @@ export class PagerService {
 
     year: number;
     month: number;
-    day: number;
 
     monthsOfYear = [ 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ];
     dayInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
     actualMonth: string;
+
+    selectedDay: Day;
 
     newMonth() {
         this.actualMonth = this.monthsOfYear[this.month];
@@ -84,7 +85,6 @@ export class PagerService {
             let date = new Date();
             this.year = date.getFullYear();
             this.month = date.getMonth();
-            this.day = date.getDate();
             this.newMonth();
         }
         else {

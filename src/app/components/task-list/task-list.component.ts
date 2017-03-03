@@ -1,9 +1,7 @@
 import 'rxjs/add/operator/switchMap';
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
 import {Day} from "../../classes/day";
 import {Task} from "../../classes/task";
-import {WeekService} from "../../services/week.service";
 import {PagerService} from "../../services/pager.service";
 
 @Component({
@@ -14,26 +12,13 @@ import {PagerService} from "../../services/pager.service";
 })
 
 export class TaskListComponent implements OnInit {
-  day: Day = new Day();
+  day: Day;
   selectedTask: Task;
 
-  constructor(
-      private route: ActivatedRoute,
-      private weekService: WeekService,
-      private pagerService: PagerService,
-  ) { }
+  constructor(private pagerService: PagerService) { }
 
   ngOnInit() {
-    let sub: number = 1;
-    this.route.params.subscribe(params => { sub = +params['day'] });
-    for(let w of this.weekService.weeks) {
-      for (let d of w.days) {
-        if(d.day == sub) {
-          this.day = d;
-          this.pagerService.day = this.day.day;
-        }
-      }
-    }
+    this.day = this.pagerService.selectedDay;
 
     /*for(let i = 0; i < 10; i++) {
       this.day.tasks.push(new Task());

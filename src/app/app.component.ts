@@ -1,5 +1,4 @@
-import {Component, OnInit} from '@angular/core';
-import {PagerService} from "./services/pager.service";
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'my-app',
@@ -7,7 +6,7 @@ import {PagerService} from "./services/pager.service";
         <h1>{{title}}</h1>
         <nav>
             <a routerLink="/calendar">Calendar</a>
-            <a routerLink="/task-list/{{pagerService.day}}">Task list </a>
+            <a routerLink="/task-list">Task list </a>
         </nav>
         <router-outlet></router-outlet>
         `,
@@ -15,9 +14,7 @@ import {PagerService} from "./services/pager.service";
 })
 
 export class AppComponent {
-  title = 'TLOG16UIAngular';
-
-  constructor(private pagerService: PagerService) {}
+  title = 'TLOG16UI Angular';
 
   static getColor(n: number) {
     if(n >= 0)
